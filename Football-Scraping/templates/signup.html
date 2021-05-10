@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign Up</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../static/styles/style.css" type="text/css">
+    </head>
+
+    <body id=sign1 style="background-color: black;">
+
+        {% block content %}
+        <div class="contact-form shadow" id="form">
+            <form id="contact-form" action="" method="POST">
+                <div class="separator">
+                    <div class="line" style="margin-top:2.08vw"></div>
+                    <h1>Sign Up</h1>
+                    <div class="line" style="margin-top:2.08vw"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="signcss">
+                <fieldset >
+                </div>
+                    <div class=usrn>
+                        <label for="username">Username</label>
+                        <input type="text" name="username" placeholder="Enter your name"><br>
+                    </div>
+                    <div class=usrn>
+                        <label for="email">E-mail</label>
+                        <input type="text" class="label1" name="email" placeholder="Enter your email" style="
+                        margin-left: 90px; ">
+                    </div>
+                    <div class=usrn>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" placeholder="Enter a password"style="
+                        margin-left: 60px; "><br>
+                    </div>
+                    <div class=usrn>
+                        <label for="confirmpw">Confirm Password</label>
+                        <input type="password" name="confirmpw" placeholder="Confirm your password" style="
+                        margin-left: 5px; "><br>
+                    </div>
+                    <div class="but">
+                            <input type="submit" value="Submit" style="
+                            margin-top: 20px;
+                            margin-left: 600px;
+                        ">
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+
+        {% endblock content %}
+        
+        <footer id="made">
+            <p>Made by AYAAN JALEEL</p>
+        </footer>
+    </body>
+</html>

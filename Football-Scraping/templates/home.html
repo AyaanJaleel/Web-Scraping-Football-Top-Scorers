@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="../static/styles/style.css" type="text/css">  
+    </head>
+<body class="body2">
+    <div class="options">
+            <ul class="main-nav">
+                    <li><a href="/index"> Introduction </a></li>
+                    <li><a href="/home"> Home </a></li>
+                    <li><a href="/intro">Guestbook</a></li>
+                    <li><a href="/about">About us </a></li>
+                    
+                    <li><a href="{{ "/logout" if session['logged in'] == True else "/login"}}"> {{ "Log out" if session['logged in'] == True else "Log in"}}</a></li>
+              
+                </ul>
+    </div>
+    <div class="sidebar">
+        <ul>
+           <li><a href="/pl">Premier League</a></Li>
+           <li><a href="/bun">Bundesliga</a></li>
+           <li><a href="/laliga">La Liga</a></li>
+           <li><a href="/serie">VAR</a></li>
+           <li><a href="/ered">Eredivise</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Upcoming matches</h1>
+        <h2>Bayern Munich vs Dortmund</h2>
+        <h3>Arsenal vs Chelsea</h3>
+        <h4>Juventus vs AC Milan</h4>
+        <h5>Barcelona vs Real Madrid</h5>
+        <h6>Ajax vs Feyenoord</h6>
+    </div>
+  
+
+</body>
+</html>

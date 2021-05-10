@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<title>Guestbook</title>
+<link href="../static/styles/style.css" rel="stylesheet" type="text/css">
+<body class="gb">
+
+<h1> Guestbook </h1>
+<img src ='../static/img/logo.jpg' width="120" class="img3">
+
+{% block content %}
+		<ul class="main-nav2" style="margin-top: 2%;">
+		  <li><a href="/index"> Introduction </a></li>
+			<li><a href="/home"> Home </a></li>
+			<li><a href="/intro">Guestbook</a></li>
+			<li><a href="/about">About us </a></li>
+      
+      {% if session['logged in'] == True %}
+      <li><a href="logout"> Log out </a></li>
+      {%endif%}
+
+
+    </ul>
+    
+    <p style="margin-left:500px;margin-top:15%; font-size: large;">Today's weather in San Francisco is: {{temp}}</p>
+    
+    <form action="{{ url_for('sign') }}" method="POST" class="gbform" >
+      <dl>
+        <dt>Name
+        <dd><input type=text name=name>
+        <dt>Age:
+        <dd><input type=text name=age>
+		    <dt>Comment:
+        <dd><input type=text name=comment>
+        <dd><input onclick="myFunction()" type=submit value=Submit>
+
+      <table border= 1 style="border-collapse: collapse; background-color: white; width: 25%; margin-top: 5%; margin-left: -50px;">
+		    <tr>
+			    <th style="background-color: purple;">Name</th>
+			    <th style="background-color: purple;">Age</th> 
+			    <th style="background-color: purple;">Comment</th>
+		    </tr>
+		{% for entry in entries %}
+			  <tr>
+				  <td> {{ entry[0]}} </td>
+				  <td> {{ entry[1]}} </td>
+				  <td> {{ entry[2]}} </td>
+			  </tr>
+		{% endfor %}
+	
+    </table>
+    
+          <script>
+              function myFunction()
+              {
+                alert("Thanks for your input!");
+              }
+          </script>
+      </dl>
+    </form>
+<br>
+
+{% endblock %}
+
+</body>
+</html>

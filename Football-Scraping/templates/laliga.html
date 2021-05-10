@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>La Liga Santander</title>
+        <link rel="stylesheet" href="../static/styles/style.css" type="text/css">
+    </head>
+    <body class="body3">
+            <div class="options">
+                    <ul class="main-nav">
+                            <li><a href="/home"> Home </a></li>
+                            <li><a href="/about">About us </a></li>
+                            
+                            {% if session['logged in'] == True %}
+                            <li><a href="logout"> Log out </a></li>
+                            {%endif%}
+                      
+                        </ul>
+            </div>
+            <div class="sidebar">
+                <ul>
+                   <li><a href="/pl">Premier League</a></Li>
+                   <li><a href="/bun">Bundesliga</a></li>
+                   <li><a href="/laliga">La Liga</a></li>
+                   <li><a href="/serie">VAR</a></li>
+                   <li><a href="/ered">Eredivise</a></li>
+                </ul>
+            </div>
+
+            <div class="content7">
+                    <h1>La Liga Santander</h1>
+                </div>
+
+                <h3 style="margin-left:17%;margin-top: 12%;color:pink;">{{desc}}</h3>    
+    
+
+            {% if session['logged in'] == False %}
+            <h1 style="margin-top:200px;">Please login to leave a comment </h1>
+            {% else %}
+       
+            <div class="com1" style="margin-top:5%; margin-left: 200px;">
+                <form action="{{url_for('post_comment_liga')}}" method="POST" id="usr">
+                Username:   <input type="text" name="Username">
+                        <input type="submit">
+                        <br>
+                        <textarea rows="4" cols="50" name="Comment" style="margin-top: 0.2%;">
+                            Give your analysis...</textarea>
+                        </div>
+                    </form>
+
+            {% endif %}
+
+            <table border = 5 style="margin-top:20%; margin-left: 500px; width: 35%; border-collapse: collapse;">
+                <tr>
+                   <th style="color: darkblue; background: lightgreen;">Username</th>
+                   <th style="color: darkblue; background: lightgreen;">Comment</th> 
+               </tr>
+               {% for entry in entries %}
+                   <tr>
+                       <td style="color: black; background: white;"> {{ entry[0]}} </td>
+                       <td style="color: black; background: white;"> {{ entry[1]}} </td>
+                   </tr>
+               {% endfor %}
+           
+           </table>
+            
+    </body>
+</html>

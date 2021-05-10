@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Serie A</title>
+        <link rel="stylesheet" href="../static/styles/style.css" type="text/css">
+    </head>
+    <body class="body3">
+            <div class="options">
+                    <ul class="main-nav">
+                            <li><a href="/home"> Home </a></li>
+                            <li><a href="/about">About us </a></li>
+                            
+                    </ul>
+            </div>
+            <div class="sidebar">
+                <ul>
+                   <li><a href="/pl">Premier League</a></Li>
+                   <li><a href="/bun">Bundesliga</a></li>
+                   <li><a href="/laliga">La Liga</a></li>
+                   <li><a href="/serie">VAR</a></li>
+                   <li><a href="/ered">Eredivise</a></li>
+                </ul>
+            </div>
+
+            <div class="content5">
+                    <h1>VAR</h1>
+                </div>
+    
+            <!-- <div class="image">
+                <img src="../static/img/ital.png">  
+            </div> -->
+            
+
+            {% for entry in array1 %}
+            <p style="font-size: 15px; margin-left: 17%;margin-top: 25%;margin-bottom: -23%;color:darkorange">{{entry|safe}}</p>
+
+               {% endfor %}
+
+            
+
+            {% if session['logged in'] == False %}
+            <h1 style="margin-top:200px;">Please login to leave a comment </h1>
+            {% else %}
+       
+            <div class="com1" style="margin-top:0%; margin-left: 200px;">
+                <form action="{{url_for('post_comment_serie')}}" method="POST" id="usr">
+                Username:   <input type="text" name="Username">
+                        <input type="submit">
+                        <br>
+                        <textarea rows="4" cols="50" name="Comment" style="margin-top: 0.2%;">
+                            Give your analysis...</textarea>
+                        </div>
+                    </form>
+
+            {% endif %}
+
+            <table border = 5 style="margin-top:20%; margin-left: 500px; width: 35%; border-collapse: collapse;">
+                <tr>
+                   <th style="color: darkblue; background: lightgreen;">Username</th>
+                   <th style="color: darkblue; background: lightgreen;">Comment</th> 
+               </tr>
+               {% for entry in entries %}
+                   <tr>
+                       <td style="color: black; background: white;"> {{ entry[0]}} </td>
+                       <td style="color: black; background: white;"> {{ entry[1]}} </td>
+                   </tr>
+               {% endfor %}
+           
+           </table>
+            
+
+            
+    </body>
+</html>

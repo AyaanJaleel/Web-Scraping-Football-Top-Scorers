@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>About us</title>
+        <link href="../static/styles/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body style="overflow: hidden; background-color: green;">
+            <div class="row">
+                    <div class="logo">
+                    <img src="../static/img/logo.jpg">
+                    </div>
+                    <div>
+                <ul class="main-nav">
+                    <li><a href="/index"> Introduction </a></li>
+                    <li><a href="/home"> Home </a></li>
+                    <li><a href="/intro">Guestbook</a></li>
+                    <li><a href="/about">About us </a></li>
+                    <li><a href="{{ "/logout" if session['logged in'] == True else "/login"}}"> {{ "Log out" if session['logged in'] == True else "Log in"}}</a></li>
+                    
+              
+                </ul>
+                </div>
+
+        <h1 style="top: 100px;">About us</h1>
+
+        <p style="top: 200px; margin-left: 370px; font-size: 25px; color:aqua;">We are Footweb! We like to analyze football games! We analyze leagues and show who will<br> most probably win the title! We also analyze<br> performance of clubs,
+        which you can refer to when<br> making bets. At this moment, we are only analyzing<br> soccer, and not any other sport. 
+        </p>
+
+    </body>
+</html>
